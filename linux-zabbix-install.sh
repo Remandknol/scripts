@@ -3,16 +3,13 @@
 # Download script via: wget https://raw.githubusercontent.com/Remandknol/scripts/main/linux-zabbix-install.sh
 
 #download
-cd /tmp/
-wget -P /tmp/ https://repo.zabbix.com/zabbix/5.4/debian/pool/main/z/zabbix-release/zabbix-release_5.4-1+debian10_all.deb
-dpkg -i /tmp/zabbix-release_5.4-1+debian10_all.deb
-apt update
-
-#install
-apt install zabbix-agent
+apt-get update
+apt-get -y install zabbix-agent
 systemctl enable zabbix-agent
 
-
-
-
-
+#config editing
+sed -i 's/Server=127.0.0.1/Server=100.100.2.233, 100.101.99.30/' /etc/zabbix/zabbix_agentd.conf
+sed -i 's/ServerActive=127.0.0.1/ServerActive=100.101.99.30/' /etc/zabbix/zabbix_agentd.conf
+sed -i 's/# HostnameItem=system.hostname/HostnameItem=system.hostname/' /etc/zabbix/zabbix_agentd.conf
+sed -i 's/# HostMetadata=/HostMetadata=Telefonie-linux/' /etc/zabbix/zabbix_agentd.conf
+service zabbix-agent restart
