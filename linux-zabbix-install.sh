@@ -1,6 +1,6 @@
 # Script om zabbix te installeren 
 # Voor versie: Debian 10
-# Download script via: wget http://10.0.2.88/linux-zabbix-install.sh
+# Download script via: wget https://raw.githubusercontent.com/Remandknol/scripts/main/linux-zabbix-install.sh
 
 #download
 cd /tmp/
