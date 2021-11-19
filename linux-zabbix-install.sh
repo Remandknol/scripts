@@ -4,8 +4,8 @@
 
 #download
 cd /tmp/
-wget https://repo.zabbix.com/zabbix/5.4/debian/pool/main/z/zabbix-release/zabbix-release_5.4-1+debian10_all.deb
-dpkg -i zabbix-release_5.4-1+debian10_all.deb
+wget -P /tmp/ https://repo.zabbix.com/zabbix/5.4/debian/pool/main/z/zabbix-release/zabbix-release_5.4-1+debian10_all.deb
+dpkg -i /tmp/zabbix-release_5.4-1+debian10_all.deb
 apt update
 
 #install
